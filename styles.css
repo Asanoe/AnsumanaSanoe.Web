@@ -6,7 +6,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Requirement 2: Cohesive Color Scheme & Contrast */
 .navbar {
     background-color: #1a2a6c; /* Deep Blue */
     border-bottom: 3px solid #fdbb2d; /* Gold accent */
@@ -26,13 +25,13 @@
     transition: 0.3s; /* Smooth transition for rollover */
 }
 
-/* Requirement 3: Rollover Effects */
+/* Rollover Effects */
 .nav-menu a:hover {
     background-color: #b21f1f; /* Crimson Red on hover */
     color: #fdbb2d;
 }
 
-/* Requirement 6: Dropdown Functionality */
+/*Dropdown */
 .dropdown {
     position: relative;
 }
@@ -55,7 +54,7 @@
     font-size: 14px;
 }
 
-/* Requirement 5: Responsive Design (Mobile) */
+/*Responsive Design (Mobile) */
 @media screen and (max-width: 768px) {
     .nav-menu {
         flex-direction: column;
