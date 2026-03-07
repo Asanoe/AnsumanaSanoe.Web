@@ -6,9 +6,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Navbar specific to your Green/Gold/White theme */
 .navbar {
-    background-color: #1a2a6c; /* Deep Blue */
-    border-bottom: 3px solid #fdbb2d; /* Gold accent */
+    background-color: #244220; /* Darker Green */
+    border-bottom: 2px solid #d4af37; /* Metallic Gold accent */
 }
 
 .nav-menu {
@@ -20,18 +21,19 @@
 .nav-menu a {
     color: white;
     text-decoration: none;
-    padding: 15px 20px;
+    padding: 15px 25px;
     display: block;
-    transition: 0.3s; /* Smooth transition for rollover */
+    transition: 0.3s;
+    font-weight: 500;
 }
 
 /* Rollover Effects */
 .nav-menu a:hover {
-    background-color: #b21f1f; /* Crimson Red on hover */
-    color: #fdbb2d;
+    background-color: #d4af37; /* Gold on hover */
+    color: #244220; /* Dark Green text on hover */
 }
 
-/*Dropdown */
+/* Dropdown */
 .dropdown {
     position: relative;
 }
@@ -39,22 +41,28 @@
 .dropdown-menu {
     display: none;
     position: absolute;
-    background-color: #1a2a6c;
-    min-width: 150px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
+    background-color: #ffffff;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.dropdown-menu li a {
+    color: #333;
+    padding: 12px 15px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f9f7f2;
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 
-.dropdown-menu li a {
-    padding: 10px 15px;
-    font-size: 14px;
-}
-
-/*Responsive Design (Mobile) */
+/* Responsive Design */
 @media screen and (max-width: 768px) {
     .nav-menu {
         flex-direction: column;
@@ -62,7 +70,22 @@
     }
 
     .dropdown-menu {
-        position: static; /* Dropdown flows with the list on mobile */
+        position: static;
         width: 100%;
     }
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #1a1a1a;
+    color: #a0a0a0;
+    font-size: 0.85rem;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #d4af37;
+    text-decoration: none;
+    margin: 0 10px;
 }
