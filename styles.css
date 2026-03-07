@@ -1,4 +1,4 @@
-/* Basic Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Navbar specific to your Green/Gold/White theme */
+/* Navbar  Green/Gold/White theme */
 .navbar {
     background-color: #244220; /* Darker Green */
     border-bottom: 2px solid #d4af37; /* Metallic Gold accent */
