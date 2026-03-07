@@ -1,63 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PHP Loops Assignment</title>
+<meta charset="UTF-8">
+<title>PHP Loop Assignment</title>
+<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    <nav>
-        <a href="index.php" style="padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; text-decoration: none;">Back to Course Work</a>
-    </nav>
+<header>
+<h1>PHP Loop Assignment</h1>
+</header>
 
-    <hr>
+<div class="container">
 
-    <h3>1) For Loop (1 to 18)</h3>
-    <?php
-    for ($i = 1; $i <= 18; $i++) {
-        echo $i . " ";
+<h2>1. For Loop (Numbers 1–18)</h2>
+<?php
+for ($i = 1; $i <= 18; $i++) {
+    echo $i . " ";
+}
+?>
+
+<h2>2. While Loop (Numbers 1–27)</h2>
+<?php
+$x = 1;
+while ($x <= 27) {
+    echo $x . " ";
+    $x++;
+}
+?>
+
+<h2>3. Do-While Loop (Numbers 1–15)</h2>
+<?php
+$y = 1;
+do {
+    echo $y . " ";
+    $y++;
+} while ($y <= 15);
+?>
+
+<h2>4. Sum of Odd Numbers from 2 to 21</h2>
+<?php
+$sum = 0;
+
+for ($i = 2; $i <= 21; $i++) {
+    if ($i % 2 != 0) {
+        $sum += $i;
     }
-    ?>
+}
 
-    <h3>2) While Loop (1 to 27)</h3>
-    <?php
-    $j = 1;
-    while ($j <= 27) {
-        echo $j . " ";
-        $j++;
+echo "Sum = " . $sum;
+?>
+
+<h2>5. Product of Even Numbers from 3 to 17</h2>
+<?php
+$product = 1;
+
+for ($i = 3; $i <= 17; $i++) {
+    if ($i % 2 == 0) {
+        $product *= $i;
     }
-    ?>
+}
 
-    <h3>3) Do-While Loop (1 to 15)</h3>
-    <?php
-    $k = 1;
-    do {
-        echo $k . " ";
-        $k++;
-    } while ($k <= 15);
-    ?>
+echo "Product = " . $product;
+?>
 
-    <h3>4) Sum of Odd Numbers (2 to 21)</h3>
-    <?php
-    $sum = 0;
-    for ($l = 2; $l <= 21; $l++) {
-        if ($l % 2 != 0) {
-            $sum += $l;
-        }
-    }
-    echo "The sum is: " . $sum;
-    ?>
-
-    <h3>5) Product of Even Numbers (3 to 17)</h3>
-    <?php
-    $product = 1;
-    for ($m = 3; $m <= 17; $m++) {
-        if ($m % 2 == 0) {
-            $product *= $m;
-        }
-    }
-    echo "The product is: " . $product;
-    ?>
+</div>
 
 </body>
 </html>
