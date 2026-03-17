@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Presentation Assignment</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: #f4f4f9;
+        }
+        section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .result-box {
+            background: #e7f3ff;
+            border-left: 5px solid #2196f3;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>JavaScript Way: Chapter 1 Exercises</h1>
+    </header>
+
+    <section>
+        <h2>1. Presentation</h2>
+        <div id="presentation-output" class="result-box"></div>
+    </section>
+
+    <section>
+        <h2>2. Minimalistic Calculator</h2>
+        <div id="calc-output" class="result-box"></div>
+    </section>
+
+    <section>
+        <h2>3. Values Prediction</h2>
+        <pre>
+console.log(4 + 5);   // Prediction: 9
+console.log("4 + 5"); // Prediction: 4 + 5
+console.log("4" + "5");// Prediction: 45</pre>
+        <div id="predict-output" class="result-box"></div>
+    </section>
+
+    <script>
+        const presOut = document.getElementById("presentation-output");
+        presOut.innerHTML = "Name: Your Name<br>Age: 25";
+        console.log("Your Name");
+        console.log(25);
+
+        const calcOut = document.getElementById("calc-output");
+        const add = 6 + 3;
+        const sub = 6 - 3;
+        const mult = 6 * 3;
+        const div = 6 / 3;
+        calcOut.innerHTML = `6 + 3 = ${add}<br>6 - 3 = ${sub}<br>6 * 3 = ${mult}<br>6 / 3 = ${div}`;
+        console.log(add, sub, mult, div);
+
+        const predOut = document.getElementById("predict-output");
+        const p1 = 4 + 5;
+        const p2 = "4 + 5";
+        const p3 = "4" + "5";
+        predOut.innerHTML = `Actual Results:<br>${p1}<br>${p2}<br>${p3}`;
+        console.log(p1);
+        console.log(p2);
+        console.log(p3);
+    </script>
+
+</body>
+</html>
