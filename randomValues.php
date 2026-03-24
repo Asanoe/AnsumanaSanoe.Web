@@ -1,5 +1,15 @@
-<?php
-// Part 1: Coin Toss
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Islamic Apparel - Randomizer</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+    <?php include('header.php'); ?> <main>
+        <h1>Assignment: Random Generators</h1>
+        <div class="results-box">
+            <?php
+               // Part 1: Coin Toss
 $heads = 0;
 $tails = 0;
 
@@ -19,4 +29,9 @@ echo "Tails occurred: " . $tails . " times.<br><br>";
 echo "Range 1 to 27: " . rand(1, 27) . "<br>";
 echo "Range 1 to 178: " . rand(1, 178) . "<br>";
 echo "Range 1 to 600: " . rand(1, 600);
-?>
+            ?>
+        </div>
+    </main>
+
+</body>
+</html>
