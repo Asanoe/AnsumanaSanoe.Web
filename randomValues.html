@@ -1,37 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Islamic Apparel - Randomizer</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Assignment</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+            color: #1c1e21;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+        }
+        h2 {
+            margin-top: 0;
+            color: #34495e;
+            font-size: 24px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        .data-row {
+            margin: 12px 0;
+            font-size: 18px;
+        }
+        .label {
+            font-weight: bold;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
 <body>
 
-    <?php include('header.php'); ?> <main>
-        <h1>Assignment: Random Generators</h1>
-        <div class="results-box">
-            <?php
-               // Part 1: Coin Toss
-$heads = 0;
-$tails = 0;
+    <nav>
+        <a href="index.html">← Back to Home</a>
+    </nav>
 
-for ($i = 1; $i <= 100; $i++) {
-    $result = rand(0, 1);
-    if ($result == 0) {
-        $heads++;
-    } else {
-        $tails++;
-    }
-}
+    <div class="card">
+        <h2>Part 1: Coin Toss Simulation (100 Tosses)</h2>
+        <div class="data-row"><span class="label">Total Tosses:</span> 100</div>
+        <div class="data-row"><span class="label">Heads:</span> <span id="heads-count">0</span></div>
+        <div class="data-row"><span class="label">Tails:</span> <span id="tails-count">0</span></div>
+    </div>
 
-echo "Heads occurred: " . $heads . " times.<br>";
-echo "Tails occurred: " . $tails . " times.<br><br>";
+    <div class="card">
+        <h2>Part 2: Random Number Generation</h2>
+        <div class="data-row"><span class="label">Range 1–27:</span> <span id="range1">0</span></div>
+        <div class="data-row"><span class="label">Range 1–178:</span> <span id="range2">0</span></div>
+        <div class="data-row"><span class="label">Range 1–600:</span> <span id="range3">0</span></div>
+    </div>
 
-// Part 2: Random Ranges
-echo "Range 1 to 27: " . rand(1, 27) . "<br>";
-echo "Range 1 to 178: " . rand(1, 178) . "<br>";
-echo "Range 1 to 600: " . rand(1, 600);
-            ?>
-        </div>
-    </main>
+    <script>
+        // PART 1: Coin Toss Logic
+        let heads = 0;
+        let tails = 0;
+
+        for (let i = 0; i < 100; i++) {
+            
+            let toss = Math.floor(Math.random() * 2); // Returns 0 or 1
+            if (toss === 0) {
+                heads++;
+            } else {
+                tails++;
+            }
+        }
+
+        document.getElementById('heads-count').innerText = heads;
+        document.getElementById('tails-count').innerText = tails;
+
+    
+        // Formula: Math.floor(Math.random() * (max - min + 1)) + min
+        document.getElementById('range1').innerText = Math.floor(Math.random() * 27) + 1;
+        document.getElementById('range2').innerText = Math.floor(Math.random() * 178) + 1;
+        document.getElementById('range3').innerText = Math.floor(Math.random() * 600) + 1;
+    </script>
 
 </body>
 </html>
