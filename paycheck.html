@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Salary Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .calc-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 5px solid #2d5a27; /* Matching the brand green */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; box-sizing: border-box; }
+        button { background: #2d5a27; color: white; border: none; padding: 12px; width: 100%; cursor: pointer; font-weight: bold; }
+        button:hover { background: #d4af37; }
+    </style>
+</head>
+<body>
+    <div class="calc-container">
+        <h2>Salary Calculator</h2>
+        <form action="paycheck.php" method="POST">
+            <label>Hours Worked:</label>
+            <input type="number" name="hours" step="0.1" required placeholder="e.g. 40">
+
+            <label>Hourly Rate ($):</label>
+            <input type="number" name="rate" step="0.01" required placeholder="e.g. 25.00">
+
+            <button type="submit">Calculate Paycheck</button>
+        </form>
+    </div>
+</body>
+</html>
