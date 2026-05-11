@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traditional Elegance | Invoice</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Traditional Elegance | Interactive Invoice</title>
     <style>
         /* Invoice styling to match the sample */
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        
         .invoice-body {
             background-color: white;
             color: #333;
             max-width: 850px;
-            margin: 30px auto;
+            margin: 0 auto;
             padding: 40px;
             border: 1px solid #ddd;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
         .invoice-banner {
-            background: linear-gradient(to right, #2c5180, #5a8bc7); /* Blue theme from image */
+            background: linear-gradient(to right, #2c5180, #5a8bc7);
             color: white;
             padding: 30px;
             margin-bottom: 20px;
@@ -53,14 +54,27 @@
 
         tr:nth-child(even) { background-color: #f9f9f9; }
 
+        /* Input Styling */
+        input {
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .amount-input { text-align: right; width: 100px; }
+
         .totals-section {
             float: right;
             width: 300px;
+            margin-top: 20px;
         }
 
         .total-row {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 10px 5px;
         }
 
@@ -72,10 +86,20 @@
         }
 
         .footer-notes {
-            margin-top: 100px;
+            margin-top: 50px;
             font-size: 0.9rem;
             color: #666;
             clear: both;
+        }
+
+        .btn-clear {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -89,21 +113,21 @@
         </header>
 
         <div class="invoice-details">
-            <h2>Invoice # 100</h2>
-            <p>Date: April 29, 2026</p>
+            <h2>Invoice # <input type="text" value="100" style="width: 50px; display: inline;"></h2>
+            <p>Date: <input type="date" id="invoiceDate" style="width: 150px;"></p>
         </div>
 
         <div class="flex-row">
             <div>
                 <h3 style="color:#2c5180">Bill To</h3>
-                <p>Ansumana Sanoe<br>
-                Bronx Community College<br>
-                New York, NY 10453<br>
-                Phone: (012) 345-6789</p>
+                <input type="text" placeholder="Customer Name" value="Ansumana Sanoe"><br>
+                <input type="text" placeholder="Address" value="Bronx Community College"><br>
+                <input type="text" placeholder="City, State, Zip" value="New York, NY 10453"><br>
+                <input type="text" placeholder="Phone" value="(012) 345-6789">
             </div>
             <div style="text-align: right;">
                 <h3 style="color:#2c5180">For</h3>
-                <p>Bulk Thobe Order &<br>Traditional Accessories</p>
+                <textarea placeholder="Service Description" style="width: 200px; height: 60px;">Bulk Thobe Order & Traditional Accessories</textarea>
             </div>
         </div>
 
@@ -111,21 +135,21 @@
             <thead>
                 <tr>
                     <th>Item Description</th>
-                    <th style="text-align: right;">Amount</th>
+                    <th style="text-align: right;">Amount ($)</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="item-table">
                 <tr>
-                    <td>Premium White Moroccan Thobe</td>
-                    <td style="text-align: right;">$85.00</td>
+                    <td><input type="text" value="Premium White Moroccan Thobe"></td>
+                    <td><input type="number" class="amount" value="85.00" oninput="calculateInvoice()"></td>
                 </tr>
                 <tr>
-                    <td>Hand-stitched Cotton Kufi (Black)</td>
-                    <td style="text-align: right;">$15.00</td>
+                    <td><input type="text" value="Hand-stitched Cotton Kufi (Black)"></td>
+                    <td><input type="number" class="amount" value="15.00" oninput="calculateInvoice()"></td>
                 </tr>
                 <tr>
-                    <td>Luxury Velvet Prayer Mat</td>
-                    <td style="text-align: right;">$45.00</td>
+                    <td><input type="text" value="Luxury Velvet Prayer Mat"></td>
+                    <td><input type="number" class="amount" value="45.00" oninput="calculateInvoice()"></td>
                 </tr>
             </tbody>
         </table>
@@ -133,16 +157,22 @@
         <div class="totals-section">
             <div class="total-row">
                 <span>Subtotal</span>
-                <span>$145.00</span>
+                <span id="subtotalDisplay">$145.00</span>
             </div>
             <div class="total-row">
-                <span>Tax Rate (6%)</span>
-                <span>$8.70</span>
+                <span>Tax Rate (%)</span>
+                <input type="number" id="taxRate" value="6" style="width: 60px; text-align: right;" oninput="calculateInvoice()">
+            </div>
+            <div class="total-row">
+                <span>Other Costs ($)</span>
+                <input type="number" id="otherCosts" value="0.00" style="width: 80px; text-align: right;" oninput="calculateInvoice()">
             </div>
             <div class="total-row grand-total">
                 <span>Total Cost</span>
-                <span>$153.70</span>
+                <span id="totalDisplay">$153.70</span>
             </div>
+            
+            <button class="btn-clear" onclick="clearForm()">Clear All Fields</button>
         </div>
 
         <div class="footer-notes">
@@ -151,6 +181,49 @@
             <p><strong>Thank you for your business!</strong></p>
         </div>
     </div>
+
+    <script>
+        // Set default date to today
+        document.getElementById('invoiceDate').valueAsDate = new Date();
+
+        function calculateInvoice() {
+            // Get all elements with class 'amount'
+            let amountFields = document.getElementsByClassName('amount');
+            let subtotal = 0;
+
+            // Loop through amount fields and sum them up
+            for (let i = 0; i < amountFields.length; i++) {
+                let val = parseFloat(amountFields[i].value);
+                if (!isNaN(val)) {
+                    subtotal += val;
+                }
+            }
+
+            // Get Tax Rate and Other Costs
+            let taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+            let otherCosts = parseFloat(document.getElementById('otherCosts').value) || 0;
+
+            // Calculations
+            let taxAmount = subtotal * (taxRate / 100);
+            let totalCost = subtotal + taxAmount + otherCosts;
+
+            // Update the UI
+            document.getElementById('subtotalDisplay').innerText = "$" + subtotal.toFixed(2);
+            document.getElementById('totalDisplay').innerText = "$" + totalCost.toFixed(2);
+        }
+
+        function clearForm() {
+            let inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                if (input.type === 'number') {
+                    input.value = 0;
+                } else if (input.type !== 'date') {
+                    input.value = '';
+                }
+            });
+            calculateInvoice();
+        }
+    </script>
 
 </body>
 </html>
