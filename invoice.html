@@ -5,6 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traditional Elegance | Interactive Invoice</title>
     <style>
+        /* --- Navigation Menu Styling --- */
+        .navbar {
+            background-color: #2c5180;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allows menu to wrap on smaller screens */
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            background-color: #5a8bc7;
+            color: #fff;
+        }
+
+        /* Dropdown Logic */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #2c5180;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            list-style: none;
+            padding: 0;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #5a8bc7;
+        }
         /* Invoice styling to match the sample */
         body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
         
