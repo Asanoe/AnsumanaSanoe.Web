@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Traditional Elegance</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Internal styles to ensure the layout is perfect even if CSS hasn't loaded */
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background-color: #f4f4f4; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        /* Nav Bar - Matches your Green theme */
+        nav { 
+            background-color: #233e1e; 
+            padding: 15px 0; 
+            text-align: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        nav a { 
+            color: #f4e4bc; 
+            margin: 0 15px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        nav a:hover { color: white; }
+
+        .contact-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 40px;
+        }
+
+        .contact-info { 
+            flex: 1; 
+            border-right: 1px solid #eee; 
+            padding-right: 30px; 
+        }
+
+        .contact-form { flex: 1.5; }
+
+        h2 { color: #233e1e; margin-top: 0; border-bottom: 2px solid #233e1e; padding-bottom: 10px; }
+        
+        .info-item { margin-bottom: 25px; }
+        .info-item strong { color: #233e1e; display: block; margin-bottom: 5px; }
+        .info-item p { margin: 0; color: #555; line-height: 1.5; }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; }
+        input, textarea { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            box-sizing: border-box; 
+        }
+
+        .submit-btn { 
+            background-color: #233e1e; 
+            color: white; 
+            border: none; 
+            padding: 15px 30px; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            width: 100%; 
+            font-size: 16px; 
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover { background-color: #2d5a27; }
+
+        @media (max-width: 768px) {
+            .contact-container { flex-direction: column; padding: 20px; }
+            .contact-info { border-right: none; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.php">Home</a>
+        <a href="paycheck.php">Paycheck Calc</a>
+        <a href="invoice.php">Invoice</a>
+        <a href="signup.php">Signup</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Our Office</h2>
+            <div class="info-item">
+                <strong>Proprietor</strong>
+                <p>Ansumana Mohamed Sanoe</p>
+            </div>
+            <div class="info-item">
+                <strong>Showroom Address</strong>
+                <p>722 Modesty Plaza, Suite 100<br>Wilmington, DE 19801</p>
+            </div>
+            <div class="info-item">
+                <strong>Phone Support</strong>
+                <p>(
