@@ -5,108 +5,166 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Traditional Elegance</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="modernizr.custom.05819.js"></script>
     <style>
-        /* Internal styles to ensure the layout is perfect even if CSS hasn't loaded */
-        body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            background-color: #f4f4f4; 
-            margin: 0; 
-            padding: 0; 
+        /* Internal Brand Styles - Matched to Home Page */
+        body {
+            background-color: #f9f7f2; 
+            background-image: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png');
+            color: #333;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Nav Bar - Matches your Green theme */
-        nav { 
-            background-color: #233e1e; 
-            padding: 15px 0; 
-            text-align: center; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        header {
+            background-color: #2d5a27; /* Deep Green */
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
         }
-        nav a { 
-            color: #f4e4bc; 
-            margin: 0 15px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            text-transform: uppercase;
-            font-size: 14px;
-        }
-        nav a:hover { color: white; }
 
-        .contact-container {
+        .container {
             max-width: 900px;
-            margin: 50px auto;
+            margin: 20px auto;
             background: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             display: flex;
             gap: 40px;
         }
 
+        /* Contact Specific Layout */
         .contact-info { 
             flex: 1; 
             border-right: 1px solid #eee; 
-            padding-right: 30px; 
+            padding-right: 20px; 
         }
 
         .contact-form { flex: 1.5; }
 
-        h2 { color: #233e1e; margin-top: 0; border-bottom: 2px solid #233e1e; padding-bottom: 10px; }
+        h2 { color: #2d5a27; margin-top: 0; }
         
         .info-item { margin-bottom: 25px; }
-        .info-item strong { color: #233e1e; display: block; margin-bottom: 5px; }
-        .info-item p { margin: 0; color: #555; line-height: 1.5; }
-
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; }
+        .info-item strong { color: #2d5a27; display: block; margin-bottom: 5px; }
+        
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
         input, textarea { 
             width: 100%; 
-            padding: 12px; 
-            border: 1px solid #ccc; 
+            padding: 10px; 
+            border: 1px solid #ddd; 
             border-radius: 4px; 
-            box-sizing: border-box; 
+            box-sizing: border-box;
         }
 
         .submit-btn { 
-            background-color: #233e1e; 
+            background-color: #2d5a27; 
             color: white; 
             border: none; 
-            padding: 15px 30px; 
+            padding: 12px; 
             border-radius: 4px; 
             cursor: pointer; 
             width: 100%; 
-            font-size: 16px; 
+            font-size: 16px;
             font-weight: bold;
-            transition: background 0.3s;
         }
-        .submit-btn:hover { background-color: #2d5a27; }
+        
+        .submit-btn:hover { background-color: #233e1e; }
 
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2d5a27;
+            color: white;
+            margin-top: 40px;
+        }
+
+        footer nav a { color: #f4e4bc; text-decoration: none; margin: 0 10px; }
+
+        /* Responsive Fix */
         @media (max-width: 768px) {
-            .contact-container { flex-direction: column; padding: 20px; }
+            .container { flex-direction: column; }
             .contact-info { border-right: none; border-bottom: 1px solid #eee; padding-bottom: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.php">Home</a>
-        <a href="paycheck.php">Paycheck Calc</a>
-        <a href="invoice.php">Invoice</a>
-        <a href="signup.php">Signup</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="loops.html">Loops</a></li>
+                <li><a href="jspresentation.html">JS Presentation</a></li>
+                <li><a href="randomValues.html">Random Values</a></li>
+                <li><a href="jscalculator.html">JS Calculator</a></li>
+                <li><a href="invoice.html">Invoice</a></li>
+                <li><a href="signup.html">Signup</a></li>
+                <li><a href="paycheck.html">Paycheck Calc</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div style="margin-top: 20px;">
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/crescent-moon.png" 
+                 alt="Islamic Apparel Logo" 
+                 style="height: 80px;">
+            <h1>Traditional Elegance</h1>
+        </div>
+    </header>
 
-    <div class="contact-container">
+    <div class="container">
+        <!-- Left Side: Contact Details -->
         <div class="contact-info">
-            <h2>Our Office</h2>
+            <h2>Contact Us</h2>
             <div class="info-item">
                 <strong>Proprietor</strong>
                 <p>Ansumana Mohamed Sanoe</p>
             </div>
             <div class="info-item">
                 <strong>Showroom Address</strong>
-                <p>722 Modesty Plaza, Suite 100<br>Wilmington, DE 19801</p>
+                <p>882 Elegant Way, Suite 400<br>Wilmington, DE 19803</p>
             </div>
             <div class="info-item">
                 <strong>Phone Support</strong>
-                <p>(646-440-0044)</p>
+                <p>(646) 440-0044</p>
+            </div>
+            <div class="info-item">
+                <strong>Business Email</strong>
+                <p>contact@traditionalelegance.com</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Interaction Form -->
+        <div class="contact-form">
+            <h2>Send an Inquiry</h2>
+            <form action="#">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="Enter Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>How can we help?</label>
+                    <textarea rows="4" placeholder="Enter your message here..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <nav>
+            <a href="index.html">Home</a> | 
+            <a href="collection.php">Shop</a> | 
+            <a href="contact.html">Contact</a>
+        </nav>
+        <p>&copy; 2026 Traditional Elegance | Ansumana Mohamed Sanoe</p>
+    </footer>
+
+</body>
+</html>
